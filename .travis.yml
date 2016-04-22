@@ -1,12 +1,16 @@
 language: c
 compiler:
-  - gcc
+- gcc
 dist: trusty
 sudo:
-  - required
+- required
 before_install:
-  - sudo apt-get -qq update
-  - uname -a
-  - sudo apt-get install -y build-essential libexpat-dev libgmp-dev libssl-dev libpcap-dev byacc flex git python-dev python-pastedeploy python-paste python-twisted
+- sudo apt-get -qq update
+- uname -a
+- sudo apt-get install -y build-essential libexpat-dev libgmp-dev libssl-dev libpcap-dev
+  byacc flex git python-dev python-pastedeploy python-paste python-twisted
 script:
-  - ./configure -q --disable-dpdk && make -s
+- ./configure -q --disable-dpdk && make -s && make -s summary
+notifications:
+  slack:
+    secure: cewqFJDFedUZ1QzPyVSTWHyW2r8IAhy7+YPKx+niFDjNgtxKyAllIaYNEE5TyA2GRL8To84svRvgp83io+9PJ8MrEkMS2ioysP4PQHrYKt1gpNh935QX0Vtq3MiqX80JurfEKnPmiJ7TUWtKvwCqlEVQ3cGFkESDZt7bDZhvVmi6Pis0SKDdaUxXaHitYzE632fOavcfDgMW1qZnXewB3mw/Nn9rmtC3vx/+CtFpVnZ24NPiwifWEPGwiqs75yDUhCA09aNVSPj+yrdi67mg2ueZDlI3g3nCMotr7diEA6vBSHOAoRNGoUyQcUoDdqp5PMDqLTbuQZL/A8c6QShFFUEhZ2fjc+8GZcyhYSSCIiErtc9WKVUV74Qfm7i9Q0d+z8vlSlwNDqxev3QpV/OVAU17mGYigA8RUwpuEBBsUfN05tULri0A179P1wDmQSw72CB+XLyGNCD54f4Tuv/L4pp3gp30ilF2XbWyvCxYyiXdhDlqBtF9qKrrUGU6aefz6MtuOqRfrGeAaa0OUOKfL9FolZU06iXk2LOUuE5mLbdAIB7FawuAZB7DhByJ0Xjfw8I9YT+FE0pHHhs0eKZvf581KgJIkrofk/KbtUoNBSg13tgui3jDoa+8F1O5KKsqkahEkiMLAh/tUuQmOtSnO5XyKr1kU4/xYBGUEt6po8k=
