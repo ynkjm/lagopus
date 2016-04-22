@@ -11,4 +11,4 @@ before_install:
 - uname -a
 - sudo apt-get install -y build-essential libexpat-dev libgmp-dev libssl-dev libpcap-dev byacc flex git python-dev python-pastedeploy python-paste python-twisted
 script:
-- ./configure --disable-dpdk && make && make summary
+- ./configure --disable-dpdk --enable-developer && make && make summary
